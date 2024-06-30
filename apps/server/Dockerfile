@@ -1,7 +1,6 @@
 FROM node:20-alpine
 
 ARG APP
-ARG PORT
 
 WORKDIR /app
 

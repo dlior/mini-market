@@ -1,9 +1,9 @@
+import { KafkaModule } from '@app/common/kafka';
 import {
   KafkaClientId,
   KafkaGroupId,
-  KafkaModule,
   MicroserviceName,
-} from '@app/shared';
+} from '@app/shared/constants';
 import { Module } from '@nestjs/common';
 
 import { EmployeeController } from './controllers';

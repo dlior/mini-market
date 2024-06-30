@@ -1,4 +1,4 @@
-import { CreateCustomerDto } from '@app/shared';
+import { CreateCustomerDto } from '@app/shared/models';
 import { Controller } from '@nestjs/common';
 import { EventPattern, Payload } from '@nestjs/microservices';
 
@@ -8,7 +8,7 @@ import { AppService } from '../services';
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @EventPattern('test')
+  @EventPattern('create_customer')
   async createCustomer(@Payload() createCustomerDto: CreateCustomerDto) {
     await this.appService.createCustomer(createCustomerDto);
   }

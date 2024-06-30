@@ -1,10 +1,8 @@
 import { Repository } from 'typeorm';
 
-import { CreateCustomerDto } from '@app/shared';
+import { CreateCustomerDto, Customer } from '@app/shared/models';
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-
-import { Customer } from '../db';
 
 @Injectable()
 export class AppService {

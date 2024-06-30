@@ -8,6 +8,7 @@ services:
       - 18082:18082
       - 19092:19092
       - 19644:9644
+    restart: always
     volumes:
       - redpanda:/var/lib/redpanda/data
     command:
@@ -39,6 +40,7 @@ services:
       - redpanda_network
     ports:
       - 8080:8080
+    restart: always
     environment:
       CONFIG_FILEPATH: /tmp/config.yml
       CONSOLE_CONFIG_FILE: |
@@ -60,61 +62,65 @@ services:
       - redpanda_network
     ports:
       - 5432:5432
+    restart: always
     env_file:
       - ./apps/server/.env
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
-  adminer:
-    image: adminer:latest
-    container_name: adminer
-    networks:
-      - redpanda_network
-    ports:
-      - 8081:8080
-    restart: always
-    env_file:
-      - ./apps/server/.env
-    depends_on:
-      - redpanda
-      - postgres
+  # adminer:
+  #   image: adminer:latest
+  #   container_name: adminer
+  #   networks:
+  #     - redpanda_network
+  #   ports:
+  #     - 8081:8080
+  #   restart: always
+  #   env_file:
+  #     - ./apps/server/.env
+  #   depends_on:
+  #     - redpanda
+  #     - postgres
 
-  api-gateway:
-    container_name: api-gateway
-    build:
-      context: ./apps/server
-      args:
-        - APP=api-gateway
-        - PORT=3000
-    networks:
-      - redpanda_network
-    ports:
-      - 3000:3000
-    working_dir: /app
-    volumes:
-      - ./apps/server:/app
-      - /app/node_modules
-    command: pnpm dev api-gateway
-    depends_on:
-      - redpanda
-      - postgres
+  # api-gateway:
+  #   container_name: api-gateway
+  #   build:
+  #     context: ./apps/server
+  #     args:
+  #       - APP=api-gateway
+  #       - PORT=3000
+  #   networks:
+  #     - redpanda_network
+  #   ports:
+  #     - 3000:3000
+  #   restart: always
+  #   working_dir: /app
+  #   volumes:
+  #     - ./apps/server:/app
+  #     - /app/node_modules
+  #   command: pnpm dev api-gateway
+  #   depends_on:
+  #     - redpanda
+  #     - postgres
 
-  service-customer:
-    container_name: service-customer
-    build:
-      context: ./apps/server
-      args:
-        - APP=service-customer
-    networks:
-      - redpanda_network
-    working_dir: /app
-    volumes:
-      - ./apps/server:/app
-      - /app/node_modules
-    command: pnpm dev service-customer
-    depends_on:
-      - redpanda
-      - postgres
+  # service-customer:
+  #   container_name: service-customer
+  #   build:
+  #     context: ./apps/server
+  #     args:
+  #       - APP=service-customer
+  #   networks:
+  #     - redpanda_network
+  #   restart: always
+  #   working_dir: /app
+  #   volumes:
+  #     - ./apps/server:/app
+  #     - /app/node_modules
+  #   command: pnpm dev service-customer
+  #   depends_on:
+  #     - redpanda
+  #     - postgres
+  #     - api-gateway
 
 networks:
   redpanda_network:

@@ -37,6 +37,15 @@
         "tsConfigPath": "apps/service-employee/tsconfig.app.json"
       }
     },
+    "service-order": {
+      "type": "application",
+      "root": "apps/service-order",
+      "entryFile": "main",
+      "sourceRoot": "apps/service-order/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/service-order/tsconfig.app.json"
+      }
+    },
     "shared": {
       "type": "library",
       "root": "libs/shared",
@@ -44,6 +53,15 @@
       "sourceRoot": "libs/shared/src",
       "compilerOptions": {
         "tsConfigPath": "libs/shared/tsconfig.lib.json"
+      }
+    },
+    "common": {
+      "type": "library",
+      "root": "libs/common",
+      "entryFile": "index",
+      "sourceRoot": "libs/common/src",
+      "compilerOptions": {
+        "tsConfigPath": "libs/common/tsconfig.lib.json"
       }
     }
   }
