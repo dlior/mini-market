@@ -1,3 +1,4 @@
+import { generateFakeEmployee } from '@app/common/utils';
 import { MicroserviceName } from '@app/shared/constants';
 import { CreateEmployeeDto } from '@app/shared/models';
 import { Inject, Injectable } from '@nestjs/common';
@@ -11,6 +12,7 @@ export class EmployeeService {
   ) {}
 
   createEmployee(createEmployeeDto: CreateEmployeeDto) {
-    this.employeeClient.emit('create_employee', createEmployeeDto);
+    console.log(createEmployeeDto);
+    this.employeeClient.emit('create_employee', generateFakeEmployee());
   }
 }

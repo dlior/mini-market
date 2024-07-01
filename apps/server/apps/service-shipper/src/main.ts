@@ -1,3 +1,4 @@
+import { TypeOrmExceptionFilter } from '@app/common/exceptions';
 import { KafkaService } from '@app/common/kafka';
 import { KafkaGroupId } from '@app/shared/constants';
 import { NestFactory } from '@nestjs/core';
@@ -11,6 +12,7 @@ async function bootstrap() {
   app.connectMicroservice<MicroserviceOptions>(
     kafkaService.getKafkaOptions({ groupId: KafkaGroupId.ShipperGroupId }),
   );
+  app.useGlobalFilters(new TypeOrmExceptionFilter());
   await app.startAllMicroservices();
 }
 bootstrap();

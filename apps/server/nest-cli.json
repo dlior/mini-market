@@ -46,6 +46,24 @@
         "tsConfigPath": "apps/service-order/tsconfig.app.json"
       }
     },
+    "service-shipper": {
+      "type": "application",
+      "root": "apps/service-shipper",
+      "entryFile": "main",
+      "sourceRoot": "apps/service-shipper/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/service-shipper/tsconfig.app.json"
+      }
+    },
+    "service-supplier": {
+      "type": "application",
+      "root": "apps/service-supplier",
+      "entryFile": "main",
+      "sourceRoot": "apps/service-supplier/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/service-supplier/tsconfig.app.json"
+      }
+    },
     "shared": {
       "type": "library",
       "root": "libs/shared",

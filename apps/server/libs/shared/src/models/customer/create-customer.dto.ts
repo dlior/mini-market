@@ -3,6 +3,7 @@ import {
   IsNotEmpty,
   IsPositive,
   IsString,
+  Max,
   MaxLength,
 } from 'class-validator';
 
@@ -34,5 +35,6 @@ export class CreateCustomerDto {
 
   @IsInt()
   @IsPositive()
+  @Max(9999999)
   postalCode: number;
 }

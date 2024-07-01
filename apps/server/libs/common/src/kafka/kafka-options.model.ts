@@ -1,6 +1,9 @@
 export interface KafkaOptionsModel {
   name: string;
   clientId: string;
-  producerOnlyMode?: boolean;
   groupId: string;
+  producerOnlyMode?: boolean;
+  fetchMinBytes?: number;
+  fetchMaxBytes?: number;
+  fetchMaxWaitMs?: number;
 }

@@ -1,3 +1,4 @@
+import { generateFakeSupplier } from '@app/common/utils';
 import { MicroserviceName } from '@app/shared/constants';
 import { CreateSupplierDto } from '@app/shared/models';
 import { Inject, Injectable } from '@nestjs/common';
@@ -11,6 +12,7 @@ export class SupplierService {
   ) {}
 
   createSupplier(createSupplierDto: CreateSupplierDto) {
-    this.supplierClient.emit('create_supplier', createSupplierDto);
+    console.log(createSupplierDto);
+    this.supplierClient.emit('create_supplier', generateFakeSupplier());
   }
 }

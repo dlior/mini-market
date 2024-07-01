@@ -22,8 +22,8 @@ function App() {
     customerService
       .createCustomer({
         name: 'Dror Degu',
-        contact: 'Adi Ann Berkovic',
-        address: 'HaShlosha 1/13',
+        contact: 'Lior Degu',
+        address: 'HaRav Reines 60',
         city: 'Petah Tikva',
         country: 'Israel',
         postalCode: 4938286,

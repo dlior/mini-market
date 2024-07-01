@@ -1,5 +1,6 @@
 import { Repository } from 'typeorm';
 
+import { generateFakeCustomer } from '@app/common/utils';
 import { MicroserviceName } from '@app/shared/constants';
 import {
   CreateCustomerDto,
@@ -20,7 +21,8 @@ export class CustomerService {
   ) {}
 
   createCustomer(createCustomerDto: CreateCustomerDto) {
-    this.customerClient.emit('create_customer', createCustomerDto);
+    console.log(createCustomerDto);
+    this.customerClient.emit('create_customer', generateFakeCustomer());
   }
 
   async updateCustomer(

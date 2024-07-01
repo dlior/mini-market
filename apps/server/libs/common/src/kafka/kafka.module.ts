@@ -1,4 +1,4 @@
-import { Partitioners } from 'kafkajs';
+import { logLevel, Partitioners } from 'kafkajs';
 
 import { DynamicModule, Module } from '@nestjs/common';
 import { ConfigModule, ConfigService } from '@nestjs/config';
@@ -17,6 +17,9 @@ export class KafkaModule {
     clientId,
     producerOnlyMode,
     groupId,
+    fetchMinBytes,
+    fetchMaxBytes,
+    fetchMaxWaitMs,
   }: KafkaOptionsModel): DynamicModule {
     return {
       module: KafkaModule,
@@ -32,6 +35,13 @@ export class KafkaModule {
                 client: {
                   clientId,
                   brokers: [configService.getOrThrow('KAFKA_BROKER_URL')],
+                  retry: {
+                    maxRetryTime: 2,
+                    logLevel: logLevel.ERROR,
+                  },
+                  fetchMinBytes,
+                  fetchMaxBytes,
+                  fetchMaxWaitMs,
                 },
                 producerOnlyMode,
                 producer: {

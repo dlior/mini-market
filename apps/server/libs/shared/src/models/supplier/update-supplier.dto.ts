@@ -4,6 +4,7 @@ import {
   IsOptional,
   IsPositive,
   IsString,
+  Max,
   MaxLength,
 } from 'class-validator';
 
@@ -35,6 +36,7 @@ export class UpdateSupplierDto {
   @IsInt()
   @IsPositive()
   @IsOptional()
+  @Max(9999999)
   postalCode?: number;
 
   @IsString()

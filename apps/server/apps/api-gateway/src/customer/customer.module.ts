@@ -5,7 +5,7 @@ import {
   KafkaGroupId,
   MicroserviceName,
 } from '@app/shared/constants';
-import { Customer, Employee, Order, Shipper } from '@app/shared/models';
+import { Customer } from '@app/shared/models';
 import { Module } from '@nestjs/common';
 
 import { CustomerController } from './controllers';
@@ -19,7 +19,7 @@ import { CustomerService } from './services';
       producerOnlyMode: true,
       groupId: KafkaGroupId.CustomerGroupId,
     }),
-    DatabaseModule.forFeature([Customer, Order, Employee, Shipper]),
+    DatabaseModule.forFeature([Customer]),
   ],
   controllers: [CustomerController],
   providers: [CustomerService],
