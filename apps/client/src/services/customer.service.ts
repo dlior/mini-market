@@ -1,10 +1,6 @@
-import {
-  CustomerRequest,
-  CustomerRequestOptions,
-  CustomerResponse,
-} from '../models/customer';
+import { CustomerRequest, CustomerRequestOptions, CustomerResponse } from '../models/customer';
 
-export class CustomerService {
+class CustomerService {
   private static instance: CustomerService;
 
   private constructor() {}
@@ -52,3 +48,5 @@ export class CustomerService {
     return await response.json();
   }
 }
+
+export const customerService = CustomerService.getInstance();

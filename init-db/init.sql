@@ -4,7 +4,7 @@ CREATE TABLE customers (
   contact VARCHAR(255) NOT NULL,
   address VARCHAR(255) NOT NULL,
   city VARCHAR(255) NOT NULL,
-  postalCode INTEGER NOT NULL,
+  postalCode VARCHAR(255) NOT NULL,
   country VARCHAR(255) NOT NULL,
   createdAt DATE NOT NULL DEFAULT NOW(),
   updatedAt DATE DEFAULT NULL,

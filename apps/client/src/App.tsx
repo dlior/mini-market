@@ -5,9 +5,8 @@ import { useEffect, useState } from 'react';
 
 import reactLogo from './assets/react.svg';
 import { CustomerResponse } from './models/customer';
-import { CustomerService } from './services';
-
-const customerService = CustomerService.getInstance();
+import { Customer, myService } from './models/data-layer/data-layer.model';
+import { customerService } from './services';
 
 function App() {
   const [count, setCount] = useState(0);
@@ -29,6 +28,8 @@ function App() {
         postalCode: 4938286,
       })
       .catch(console.error);
+
+    myService.getItems<Customer>({ resource: 'customer' });
   }, []);
 
   return (

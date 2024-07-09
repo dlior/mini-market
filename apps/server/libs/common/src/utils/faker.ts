@@ -16,7 +16,7 @@ export const generateFakeCustomer = (): CreateCustomerDto => ({
   address: faker.location.street(),
   city: faker.location.city(),
   country: faker.location.country(),
-  postalCode: parseInt(faker.location.zipCode()),
+  postalCode: faker.location.zipCode(),
 });
 
 export const generateFakeEmployee = (): CreateEmployeeDto => ({
@@ -38,6 +38,6 @@ export const generateFakeSupplier = (): CreateSupplierDto => ({
   address: faker.location.street(),
   city: faker.location.city(),
   country: faker.location.country(),
-  postalCode: parseInt(faker.location.zipCode()),
+  postalCode: faker.location.zipCode(),
   phone: faker.phone.number(),
 });

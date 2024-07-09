@@ -1,11 +1,4 @@
-import {
-  IsInt,
-  IsNotEmpty,
-  IsPositive,
-  IsString,
-  Max,
-  MaxLength,
-} from 'class-validator';
+import { IsNotEmpty, IsString, MaxLength } from 'class-validator';
 
 export class CreateCustomerDto {
   @IsString()
@@ -33,8 +26,8 @@ export class CreateCustomerDto {
   @MaxLength(255)
   country: string;
 
-  @IsInt()
-  @IsPositive()
-  @Max(9999999)
-  postalCode: number;
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(255)
+  postalCode: string;
 }

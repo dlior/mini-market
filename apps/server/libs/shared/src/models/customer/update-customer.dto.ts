@@ -1,12 +1,4 @@
-import {
-  IsInt,
-  IsNotEmpty,
-  IsOptional,
-  IsPositive,
-  IsString,
-  Max,
-  MaxLength,
-} from 'class-validator';
+import { IsNotEmpty, IsOptional, IsString, MaxLength } from 'class-validator';
 
 export class UpdateCustomerDto {
   @IsString()
@@ -33,9 +25,9 @@ export class UpdateCustomerDto {
   @IsOptional()
   country?: string;
 
-  @IsInt()
-  @IsPositive()
+  @IsString()
+  @IsNotEmpty()
+  @MaxLength(255)
   @IsOptional()
-  @Max(9999999)
-  postalCode?: number;
+  postalCode?: string;
 }
